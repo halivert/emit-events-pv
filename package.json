@@ -1,0 +1,19 @@
+{
+	"name": "emit-events-pv",
+	"version": "0.0.0",
+	"scripts": {
+		"dev": "vite",
+		"build": "tsc && vite build",
+		"serve": "vite preview"
+	},
+	"devDependencies": {
+		"typescript": "^4.3.2",
+		"vite": "^2.6.0"
+	},
+	"dependencies": {
+		"petite-vue": "^0.3.0"
+	},
+	"prettier": {
+		"semi": false
+	}
+}
