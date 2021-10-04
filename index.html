@@ -4,11 +4,41 @@
 		<meta charset="UTF-8" />
 		<link rel="icon" type="image/svg+xml" href="favicon.svg" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Vite App</title>
+		<title>Petite vue, emit test</title>
 		<link rel="stylesheet" href="https://unpkg.com/halivert.css" />
 	</head>
 	<body>
-		<main id="app"></main>
+		<main id="app">
+			<template id="parent-template">
+				<h1>{{ name }}</h1>
+
+				<article v-for="child in children" v-scope="Child(child)"></article>
+
+				<hr />
+
+				<section>
+					<h2>Events</h2>
+
+					<ul>
+						<li v-for="event in events">{{ event }}</li>
+					</ul>
+
+					<br />
+
+					<button @click="clearEvents">Clear events</button>
+				</section>
+			</template>
+
+			<template id="child-template">
+				<h5>{{ name }}</h5>
+
+				<input type="text" v-model="value" />
+
+				<button @click="onClick">Press me!</button>
+			</template>
+
+			<section v-scope="Parent()" @child-update="handleUpdate"></section>
+		</main>
 		<script type="module" src="/src/main.ts"></script>
 	</body>
 </html>
